@@ -13,6 +13,7 @@ data <- read.table(
     na.strings = "?"
 )
 
+data$Time <- strptime(paste(data$Date, data$Time, sep=" "), format = "%d/%m/%Y %H:%M:%S")
 data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
 
 data <- subset(data, data$Date == "2007-02-01" | data$Date == "2007-02-02")
